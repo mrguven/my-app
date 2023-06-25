@@ -3,19 +3,20 @@ import './App.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-
+import ToDoList from './pages/ToDoList';
+// import styled from "styled-components";
 
 function App() {
   return (
     <div className="App">
      
-<Navbar />
+
      <BrowserRouter>
-     
+     <Navbar />
      <Routes>
 
-        <Route excat path='/' element={<Home />} />
-
+        <Route  path='/' exact  element={<Home />} />
+    <Route path='/todolist' element={<ToDoList />} />  
 
      </Routes>
      
