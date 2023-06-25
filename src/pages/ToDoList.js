@@ -1,4 +1,21 @@
+import { useState } from "react"
+
 export default function ToDoList(){
+
+
+
+const [task,setTask]=useState('');
+
+const [description,setDescription]=useState([]);
+
+const [completeTask,setCompleteTask ]=useState(true)
+
+
+const addList=()=> {
+    
+ description.push(task)
+ console.log(description);
+}
 
 
 
@@ -10,15 +27,15 @@ export default function ToDoList(){
 <form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Task</label>
-    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="type task" value={task} />
+    <input type="text" className="form-control" id="task"  placeholder="type task" value={task}   onChange={(e)=> setTask(e.target.value)} />
    
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Describe</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="describe your task" value={description} />
+    <input type="text" className="form-control" id="description" placeholder="describe your task"  />
   </div>
 
-  <button type="submit" class="btn btn-primary">Add Task</button>
+  <button onClick={addList} class="btn btn-primary">Add Task</button>
 </form>
 
 
@@ -28,7 +45,7 @@ export default function ToDoList(){
 
 <ul>
 
-    <h1>asdfasd    <button class="btn btn-warning">done</button>  </h1>
+    <h1> {task}    <button class="btn btn-warning">done</button>  </h1>
 </ul>
 
 
