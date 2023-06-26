@@ -52,8 +52,6 @@ setTaskList(
 
             <div> 
 
-
-
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Task</label>
     <input type="text" className="form-control" id="task"  placeholder="type task" value={task}   onChange={(e)=> setTask(e.target.value)} />
@@ -71,14 +69,6 @@ setTaskList(
   <button onClick={()=>addList()} class="btn btn-primary">Add Task</button>
 
 
-
-
-
-
-
-
-
-
 {
     taskList.map((el,index)=> {
         return  ( 
@@ -88,12 +78,7 @@ setTaskList(
                <i><h1> Description: {el.description}      </h1></i>  <button  onClick={()=> deleteTask(el.id)} class="btn btn-warning">done</button>
                 </div>
                     
-
-                 
-
-
-        
-)
+   )
     })
 
     
