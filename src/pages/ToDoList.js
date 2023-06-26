@@ -54,7 +54,7 @@ setTaskList(
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Task</label>
-    <input type="text" className="form-control" id="task"  placeholder="type task" value={task}   onChange={(e)=> setTask(e.target.value)} />
+    <input type="text" className="form-control" id="task"  placeholder="type task" value={task}   onChange={(e)=>  setTask(e.target.value)} />
    
   </div>
   <div class="mb-3">

@@ -4,6 +4,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ToDoList from './pages/ToDoList';
+import FetchFile from './pages/FetchFile';
 // import styled from "styled-components";
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
 
         <Route  path='/' exact  element={<Home />} />
     <Route path='/todolist' element={<ToDoList />} />  
-
-     </Routes>
-     
+<Route path='/fetch' element={<FetchFile />} />
+    
+</Routes>
      </BrowserRouter>
 
 
