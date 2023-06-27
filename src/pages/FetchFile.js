@@ -46,7 +46,7 @@ useEffect( ()=> {
    <h1>Quote Generator</h1>
 
 {
-    text==''  &&
+    
     <h3>
     {text.text} <br />
       <b>{text.author}</b>
