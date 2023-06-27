@@ -15,16 +15,27 @@ const getNewText=()=> {
    
 console.log(num);
 }
-
-useEffect( ()=> {axios.get('https://type.fit/api/quotes').then(response=> { return setTextList(response.data)})},[])
+const getData = async ( ) => {
+      await axios.get('https://type.fit/api/quotes').then((res)=> setTextList(res.data) );
+   
+}
+  useEffect(  ()=> {getData()},[])
 
 console.log('sdfgdsf');
 
 console.log(textList);
-useEffect(()=> { 
-  setText(textList[num]); console.log(textList[num]); }
-    ,[num] )
 
+
+const sendData = async ()=>{
+await setText(textList[num]); console.log(textList[num]); }
+
+
+
+
+useEffect( ()=> { 
+  sendData()
+},[num] )
+ 
 
 
     return(
@@ -34,13 +45,17 @@ useEffect(()=> {
 
    <h1>Quote Generator</h1>
 
+{
+    text==''  &&
+    <h3>
+    {text.text} <br />
+      <b>{text.author}</b>
+       
+    </h3>
 
-   {  <h3>
-   
-{text.text}
-  
-   
-</h3>}
+}
+
+    
    
 <button class="btn btn-success" onClick={getNewText}>new Quote</button>
 
