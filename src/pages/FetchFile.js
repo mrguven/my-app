@@ -9,13 +9,7 @@ export default function FetchFile () {
     const [text,setText]=useState({})
     const [isloading,setIsLoading]= useState(false)
 
-const getNewText=()=> {
 
-    
-    setNum(()=> num+1)
-   
-console.log(num);
-}
 
   useEffect(  ()=> {axios.get('https://type.fit/api/quotes').then((res)=> setTextList(res.data) );
   setIsLoading(true)},[])
@@ -28,12 +22,17 @@ console.log(textList);
 
 
 
-
 useEffect( ()=> { 
     setText(textList[num]); console.log(textList[num]); setIsLoading(true)
 },[num] )
  
+const getNewText=()=> {
 
+     
+    setNum( Math.floor(Math.random()*textList.length))
+   
+console.log(num);
+}
 
     return(
 
