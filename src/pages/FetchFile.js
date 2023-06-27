@@ -7,6 +7,7 @@ export default function FetchFile () {
     const [textList,setTextList]=useState([]);
     const [num,setNum]=useState(0);
     const [text,setText]=useState({})
+    const [isloading,setIsLoading]= useState(false)
 
 const getNewText=()=> {
 
@@ -15,25 +16,21 @@ const getNewText=()=> {
    
 console.log(num);
 }
-const getData = async ( ) => {
-      await axios.get('https://type.fit/api/quotes').then((res)=> setTextList(res.data) );
-   
-}
-  useEffect(  ()=> {getData()},[])
+
+  useEffect(  ()=> {axios.get('https://type.fit/api/quotes').then((res)=> setTextList(res.data) );
+  setIsLoading(true)},[])
 
 console.log('sdfgdsf');
 
 console.log(textList);
 
 
-const sendData = async ()=>{
-await setText(textList[num]); console.log(textList[num]); }
 
 
 
 
 useEffect( ()=> { 
-  sendData()
+    setText(textList[num]); console.log(textList[num]); setIsLoading(true)
 },[num] )
  
 
@@ -45,17 +42,23 @@ useEffect( ()=> {
 
    <h1>Quote Generator</h1>
 
-{
-    
-    <h3>
-    {text.text} <br />
-      <b>{text.author}</b>
+
+   {
        
-    </h3>
+       text
+        ?
+   <h3>
+   {text.text} <br />
+     <b>{text.author}</b>
+      
+   </h3>
+       :
+<div class="spinner-border" role="status">
+<span class="visually-hidden">Loading...</span>
+</div> 
 
 }
 
-    
    
 <button class="btn btn-success" onClick={getNewText}>new Quote</button>
 
