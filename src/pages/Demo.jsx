@@ -1,21 +1,54 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, } from "react";
+
 
 export default function Demo (){
 
 
 
 
-axios.get('fsq3GOSro0WI5X3NIcWW7hrMMnd8WmqGekV2smHBQ7rEhuQ=')
+    
 
 
-const [task,setTask]=useState('');
+const [venues,setVenues]=useState('');
 
-const [description,setDescription]=useState('');
+const [city,setCity]=useState('');
 
+const [err,setErr]=useState()
 
 
 const search =()=> {
+
+
+
+    async function placeSearch() {
+        try {
+            const searchParams = new URLSearchParams({
+              query: 'coffee',
+              near: 'Seattle, WA',
+              open_now: 'true',
+              sort: 'DISTANCE'
+            });
+            const results = await fetch(
+              `https://api.foursquare.com/v3/places/search?${searchParams}`,
+              {
+                method: 'GET',
+                headers: {
+                  Accept: 'application/json',
+                  Authorization: FOURSQUARE_API,
+                }
+              }
+            );
+            const data = await results.json();
+            return data;
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+
+
+
 
 }
 
@@ -25,19 +58,26 @@ const search =()=> {
 
 <div>
 <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Task</label>
-    <input type="text" className="form-control" id="task"  placeholder="type task" value={task}   onChange={(e)=>  setTask(e.target.value)} />
+<label for="exampleInputPassword1" class="form-label">City</label>
+    <input type="text" className="form-control" id="description" placeholder="City" value={city}   onChange={(e)=> setCity(e.target.value)} />
+    {err}
    
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Describe</label>
-    <input type="text" className="form-control" id="description" placeholder="describe your task" value={description}   onChange={(e)=> setDescription(e.target.value)} />
-    
-  </div>
 
-<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"> 
-       
-</div>
+  <label for="exampleInputEmail1" class="form-label">venues</label>
+    <input type="text" className="form-control" id="task"  placeholder="venues" value={venues}   onChange={(e)=>  setVenues(e.target.value)} />
+   
+  </div>
+  {err}
+
+
+{/* <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"> 
+<label for="exampleInputEmail1" class="form-label">Near by me</label>
+
+<input type="radio" value="treu" name="nearby" />  
+  </div> */}
+
   <button onClick={()=>search()} class="btn btn-primary">Search </button>
 
   </div>

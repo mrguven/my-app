@@ -73,7 +73,7 @@ console.log(num);
 
 
 </div>
-<button class="btn btn-success" onClick={getNewText}>new Quote</button>
+<button class="btn btn-success"  id="quoteButton" onClick={getNewText}>new Quote</button>
 
 </div>
 
