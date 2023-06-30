@@ -25,7 +25,7 @@ return (
           <Link to='/fetch' className="nav-link active">FetchFile</Link>
         </li>
         <li className="nav-item">
-          <Link to='demo' className="nav-link active" aria-current="page" >Demo</Link>
+          <Link to='demo' className="nav-link active" aria-current="page" >Demo Challenge</Link>
         </li>
       </ul>
       <form className="d-flex" role="search">
