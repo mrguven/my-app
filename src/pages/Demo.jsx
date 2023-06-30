@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, } from "react";
 import ShowData from "../components/ShowData";
 
-require('dotenv').config();
+
 
 export default function Demo (){
 
@@ -82,7 +82,7 @@ console.log(sort);
                 method: 'GET',
                 headers: {
                   Accept: 'application/json',
-                  Authorization: process.env.FOURSQUARE_API,
+                  Authorization: process.env.REACT_APP_FOURSQUARE_API
                 }
               }
             );
