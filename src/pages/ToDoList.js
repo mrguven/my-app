@@ -10,9 +10,7 @@ const [taskList,setTaskList]=useState([])
 
 const [description,setDescription]=useState('');
 
-const [completed,setComplete]=useState()
 
-const [completeTask,setCompleteTask ]=useState(true)
 
 const [err,setErr]=useState('')
 
